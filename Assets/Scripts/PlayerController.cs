@@ -8,9 +8,14 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
 
+    public float jump;
+
+    private Rigidbody2D rb2d;
+
     private void Awake()
     {
         Debug.Log("Player Controller Awake");
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,15 +24,20 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Jump");
 
-        PlayerMovement(horizontal);
+        PlayerMovement(horizontal, vertical);
         PlayerAnimation(horizontal, vertical);
     }
 
-    private void PlayerMovement(float horizontal)
+    private void PlayerMovement(float horizontal, float vertical)
     {
         Vector3 position = transform.position;
         position.x += horizontal * speed * Time.deltaTime;
         transform.position = position;
+
+        if(vertical > 0)
+        {
+            rb2d.AddForce(new Vector2(0, jump));
+        }
     }
 
     private void PlayerAnimation(float horizontal, float vertical)
