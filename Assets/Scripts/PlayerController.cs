@@ -10,24 +10,35 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player Controller Awake");
     }
-    
+
     // Update is called once per frame
     private void Update()
     {
         float speed = Input.GetAxisRaw("Horizontal");
+        float jump = Input.GetAxisRaw("Vertical");
 
         animator.SetFloat("Speed", Mathf.Abs(speed));
+        animator.SetFloat("Jump", Mathf.Abs(jump));
 
         Vector3 scale = transform.localScale;
-        if(speed < 0)
+        if (speed < 0)
         {
-            scale.x  = -1f * Mathf.Abs(scale.x);
+            scale.x = -1f * Mathf.Abs(scale.x);
         }
-        else if(speed > 0)
+        else if (speed > 0)
         {
             scale.x = Mathf.Abs(scale.x);
         }
 
         transform.localScale = scale;
+
+        if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            animator.SetTrigger("Crouch");
+        }
+        else
+        {
+            animator.ResetTrigger("Crouch");
+        }
     }
 }
