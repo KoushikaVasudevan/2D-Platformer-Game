@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public GameObject pointA;
     public GameObject pointB;
     public float speed;
+    public int damage;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -59,7 +60,7 @@ public class EnemyController : MonoBehaviour
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
 
-            playerController.KillPlayer();
+            playerController.TakeDamage(damage);
         }
     }
 }

@@ -2,12 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public ScoreController scoreController;
     public Animator animator;
-    public GameObject enemy;
+    public int health;
+
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
 
     public GameObject gameOverCanvas;
 
@@ -34,13 +39,44 @@ public class PlayerController : MonoBehaviour
         scoreController.IncreaseScore(10);
     }
 
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+
+        UpdateHealthUI(health);
+
+        if (health <= 0)
+        {
+            KillPlayer();
+        }
+    }
+
     public void KillPlayer()
     {
         Debug.Log("Player Killed");
 
         animator.SetTrigger("PlayerDied");
 
+        for(int i=0; i < hearts.Length; i++)
+        {
+            hearts[i].sprite = emptyHeart;
+        }
         gameOverCanvas.gameObject.SetActive(true);
+    }
+
+    public void UpdateHealthUI(int currentHealth)
+    {
+        for(int i = 0; i < hearts.Length; i++)
+        {
+            if (i < currentHealth)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+        }
     }
 
     // Update is called once per frame
