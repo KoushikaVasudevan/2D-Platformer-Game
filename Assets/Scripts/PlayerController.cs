@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public ScoreController scoreController;
     public Animator animator;
+    public GameObject enemy;
+
+    public GameObject gameOverCanvas;
 
     public float speed;
 
@@ -20,10 +23,24 @@ public class PlayerController : MonoBehaviour
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        
+    }
+
     public void PickUpKey()
     {
         Debug.Log("Player picked up the key");
         scoreController.IncreaseScore(10);
+    }
+
+    public void KillPlayer()
+    {
+        Debug.Log("Player Killed");
+
+        animator.SetTrigger("PlayerDied");
+
+        gameOverCanvas.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

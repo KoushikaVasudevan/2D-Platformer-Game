@@ -4,28 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerDied : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public GameObject gameOverCanvas;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<PlayerController>() != null)
+        if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
-            Debug.Log("Player died");
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
 
-            gameOverCanvas.gameObject.SetActive(true);
-            //restartButton.gameObject.SetActive(true);
-            //gameOverText.gameObject.SetActive(true);
-}
+            playerController.KillPlayer();
+        }
     }
 
     public void RestartScene()
     {
         gameOverCanvas.gameObject.SetActive(false);
-        //restartButton.gameObject.SetActive(false);
-        //gameOverText.gameObject.SetActive(false);
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
