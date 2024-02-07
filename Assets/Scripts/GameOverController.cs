@@ -26,4 +26,9 @@ public class GameOverController : MonoBehaviour
         gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
