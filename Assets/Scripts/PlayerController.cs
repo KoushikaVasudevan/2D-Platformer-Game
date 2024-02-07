@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
-    public GameObject gameOverCanvas;
+    public GameOverController gameOverController;
 
     public float speed;
 
@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
         {
             hearts[i].sprite = emptyHeart;
         }
-        gameOverCanvas.gameObject.SetActive(true);
+
+        gameOverController.PlayerDied();
     }
 
     public void UpdateHealthUI(int currentHealth)

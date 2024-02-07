@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour
+public class GameOverController : MonoBehaviour
 {
-    public GameObject gameOverCanvas;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerController>() != null)
@@ -18,9 +16,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void PlayerDied()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void RestartScene()
     {
-        gameOverCanvas.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
