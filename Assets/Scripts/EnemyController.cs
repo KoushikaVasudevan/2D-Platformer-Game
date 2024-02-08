@@ -4,54 +4,42 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject pointA;
-    public GameObject pointB;
+    public Transform pointA;
+    public Transform pointB;
+
     public float speed;
     public int damage;
 
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Transform currentPoint;
+    private Transform target;
+    private Vector3 scale;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        currentPoint = pointB.transform;
-        //animator.SetBool("isWalking", true);
+        target = pointB;
+        scale = transform.localScale;
     }
 
     private void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-        if(currentPoint == pointB.transform)
+        if (Vector2.Distance(transform.position, target.position) < 1f && (target == pointB))
         {
-            rb.velocity = new Vector2(speed, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed, 0);
-        }
+            target = pointA;
+            scale.x = -1f * Mathf.Abs(scale.x);
 
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5 && currentPoint == pointB.transform)
-        {
-            flip();
-            currentPoint = pointA.transform;
-        }
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5 && currentPoint == pointA.transform)
-        {
-            flip();
-            currentPoint = pointB.transform;
-        }
-    }
+            transform.localScale = scale;
 
-    private void flip()
-    {
-        Vector3 localScale = transform.localScale;
+            
+        }
+        else if (Vector2.Distance(transform.position, target.position) < 1f && (target == pointA))
+        {
+            target = pointB;
+            scale.x = Mathf.Abs(scale.x);
 
-        localScale.x *= -1;
-        transform.localScale = localScale;
+            transform.localScale = scale;
+            
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     public void PickUpKey()
