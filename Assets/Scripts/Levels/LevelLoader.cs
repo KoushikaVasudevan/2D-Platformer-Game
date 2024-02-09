@@ -16,8 +16,20 @@ public class LevelLoader : MonoBehaviour
 
     private void onClick()
     {
-        button.GetComponent<Image>().color = Color.red;
+        LevelStatus levelstatus = LevelManager.Instance.GetLevelStatus(LevelName);
+        switch(levelstatus)
+        {
+            case LevelStatus.Locked:
+                Debug.Log("The level has to be unlocked");
+                break;
 
-        SceneManager.LoadScene(LevelName);
+            case LevelStatus.Unlocked:
+                SceneManager.LoadScene(LevelName);
+                break;
+
+            case LevelStatus.Completed:
+                SceneManager.LoadScene(LevelName);
+                break;
+        }
     }
 }
