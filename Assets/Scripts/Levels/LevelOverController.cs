@@ -26,7 +26,7 @@ public class LevelOverController : MonoBehaviour
 
     private void LevelCompleted()
     {
-        if(currentScene.name != "Level4")
+        if(currentScene.name != "Level5")
         {
             LevelManager.Instance.MarkCurrentLevelComplete();
         }
