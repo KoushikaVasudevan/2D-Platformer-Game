@@ -37,6 +37,7 @@ public class LevelOverController : MonoBehaviour
 
     public void LoadNextScene()
     {
+        SoundManager.Instance.Play(SoundManager.Sounds.ButtonClick);
         SceneManager.LoadScene(currentScene.buildIndex + 1);
     }
 }

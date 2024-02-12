@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
 
     public void PickUpKey()
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         Vector3 position = transform.position;
         position.x += horizontal * speed * Time.deltaTime;
         transform.position = position;
-
+        
         if(vertical > 0)
         {
             rb2d.AddForce(new Vector2(0, jump));

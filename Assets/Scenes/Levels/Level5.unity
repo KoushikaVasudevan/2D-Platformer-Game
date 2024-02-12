@@ -4924,6 +4924,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 519420029, guid: c1ba75ad9e4b0714b814827f7226aafc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 397140642413359245, guid: c1ba75ad9e4b0714b814827f7226aafc,
         type: 3}
       propertyPath: scoreController

@@ -14,6 +14,7 @@ public class KeyController : MonoBehaviour
 
             playerController.PickUpKey();
 
+            SoundManager.Instance.Play(SoundManager.Sounds.KeyPickup);
             Destroy(gameObject);
         }  
     }
