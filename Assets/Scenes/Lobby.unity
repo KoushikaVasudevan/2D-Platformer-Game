@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.35924706, g: 0.44452193, b: 0.6509434, a: 1}
+  m_Color: {r: 0.6415094, g: 0.29352084, b: 0.60642684, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Celestial Runes
+  m_text: Skyward
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1263,8 +1263,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289976730
-  m_fontColor: {r: 0.6047526, g: 0.8490566, b: 0.7004383, a: 1}
+    rgba: 4294045093
+  m_fontColor: {r: 0.6452474, g: 0.9292433, b: 0.9433962, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8039,7 +8039,7 @@ MonoBehaviour:
   - soundType: 3
     soundClip: {fileID: 8300000, guid: d1561ed3a5a60a040bc0b9be00c9f581, type: 3}
   - soundType: 2
-    soundClip: {fileID: 8300000, guid: 13de3c8b19190eb488622c2982f7e977, type: 3}
+    soundClip: {fileID: 8300000, guid: 5efaa944cc7cece4996b86725256962b, type: 3}
   - soundType: 4
     soundClip: {fileID: 8300000, guid: d76c71e98617e1c41a5cdc490eb1bee1, type: 3}
 --- !u!81 &1750423223

@@ -83,7 +83,7 @@ public class SoundManager : MonoBehaviour
     {
         ButtonClick,
         Music,
-        PlayerMove,
+        LevelComplete,
         PlayerDeath,
         KeyPickup
     }
